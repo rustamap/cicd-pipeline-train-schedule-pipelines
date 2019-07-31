@@ -13,7 +13,6 @@ pipeline {
                 branch 'master'
             }
             steps {
-                 {
                     sshPublisher(
                         failOnError: true,
                         continueOnError: false,
@@ -31,7 +30,6 @@ pipeline {
                             )
                         ]
                     )
-                }
             }
         }
         stage('DeployToProduction') {

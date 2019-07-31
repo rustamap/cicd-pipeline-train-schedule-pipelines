@@ -35,13 +35,11 @@ pipeline {
                 }
             
         }
-        stage('DeployToProduction') {
+                stage('DeployToProduction') {
             when {
                 branch 'master'
             }
-            steps {
-                input 'Does the staging environment look OK?'
-                milestone(1)
+            steps 
                  {
                     sshPublisher(
                         failOnError: true,
@@ -49,7 +47,7 @@ pipeline {
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'production',
-                                
+                              
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'dist/trainSchedule.zip',
@@ -61,7 +59,8 @@ pipeline {
                             )
                         ]
                     )
-                }
+                }        
             }
+        }    
     }
 }

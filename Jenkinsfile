@@ -12,15 +12,14 @@ pipeline {
             when {
                 branch 'master'
             }
-            steps 
-           {
+            steps {
+                 {
                     sshPublisher(
                         failOnError: true,
                         continueOnError: false,
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'staging',
-                                sshCredentials: [ 
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'dist/trainSchedule.zip',
@@ -32,7 +31,7 @@ pipeline {
                             )
                         ]
                     )
-                
+                }
             }
         }
         stage('DeployToProduction') {

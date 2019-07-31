@@ -12,7 +12,7 @@ pipeline {
             when {
                 branch 'master'
             }
-            steps {
+            steps 
            {
                     sshPublisher(
                         failOnError: true,
@@ -32,7 +32,7 @@ pipeline {
                             )
                         ]
                     )
-                }
+                
             }
         }
         stage('DeployToProduction') {
